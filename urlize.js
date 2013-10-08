@@ -264,6 +264,9 @@ function urlize(text, options) {
 		    url = htmlescape(url);
 		    trimmed = htmlescape(trimmed);
 		}
+		if (options.wrapper_url) {
+            	    trimmed = options.wrapper_url(trimmed);
+                }
 		middle = '<a href="' + url + '"' + nofollow_attr + target_attr + '>' + trimmed + '</a>';
 		words[i] = lead + middle + trail;
 	    } else {
